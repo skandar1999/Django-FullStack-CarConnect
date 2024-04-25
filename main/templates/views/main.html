@@ -46,16 +46,26 @@
 	      </button>
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav ml-auto">
-            <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-	        <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
-	        <li class="nav-item"><a href="car.html" class="nav-link">Our Car</a></li>
-	        <li class="nav-item"><a href="{% url 'blog' %}" class="nav-link">Blog</a>
-            <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a>
-            </li>
-	        </ul>
-	      </div>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
+				<li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
+				<li class="nav-item"><a href="car.html" class="nav-link">Our Car</a></li>
+				<li class="nav-item"><a href="{% url 'blog' %}" class="nav-link">Blog</a></li>
+				<li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+				{% if user.is_authenticated %}
+					<li class="nav-item">
+						<a class="nav-link" href="{% url 'profile' %}">Logged in as: {{ user.username }}</a>
+					</li>
+				{% else %}
+					<li class="nav-item" style="margin-top: 11px;">
+						<a href="{% url 'profile' %}" class="nav-link login-btn" style="border: 1px solid #ccc; padding: 3px 10px; border-radius: 5px;">Login</a>
+					</li>
+				{% endif %}
+			</ul>
+		</div>
+		
+
+
 	    </div>
 	  </nav>
     <!-- END nav -->

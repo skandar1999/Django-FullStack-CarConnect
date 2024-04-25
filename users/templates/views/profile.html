@@ -1,0 +1,9 @@
+
+<h1>Welcome to your profile, {{ user.username }}</h1>
+<p>Email: {{ user.email }}</p>
+<p>First Name: {{ user.first_name }}</p>
+<p>Last Name: {{ user.last_name }}</p>
+<form action="{% url 'profile' %}" method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-primary">Logout</button>
+</form>
