@@ -26,8 +26,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(main_app_urls)),  
     path('contact/', include(main_app_urls)),  
-    path('blog/', include(main_app_urls)),  
-    path('', include(users_app_urls)),  # Include users app URLs
+    path('blog/', include(main_app_urls)), 
+     
+    path('', include(users_app_urls)), 
+    path('register/', include(users_app_urls)),  
+ 
 ]
 
 if settings.DEBUG:
